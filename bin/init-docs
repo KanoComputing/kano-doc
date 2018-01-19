@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+# init-docs
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# It has dependencies on some Python modules:
+#     pip install docopt
+
+"""
+init-docs is a small script to help initialise a project with doc tools
+
+Usage:
+    init-docs <repo-path> [options]
+    init-docs -h | --help
+
+Arguments:
+    <repo-path>       Path to the repo to initialise with docs
+
+Options:
+    -s, --dry-run     Simulate what the script would do
+    -y, --no-confirm  Do not ask for user confirmation
+    -h, --help        Show this message
+"""
+
+
+from os.path import abspath, join, dirname
+import sys
+
+import docopt
+
+if __name__ == '__main__' and __package__ is None:
+    DIR_PATH = abspath(join(dirname(__file__), '..', 'src'))
+    if DIR_PATH != '/usr':
+        sys.path.insert(0, DIR_PATH)
+
+from kano_doc.init_docs import main
+
+
+if __name__ == '__main__':
+    args = docopt.docopt(__doc__)
+    sys.exit(main(args))
