@@ -39,5 +39,10 @@ from kano_doc.init_docs import main
 
 
 if __name__ == '__main__':
-    args = docopt.docopt(__doc__)
+    # Show the entire docstring when incorrect arguments are given.
+    try:
+        args = docopt.docopt(__doc__)
+    except docopt.DocoptExit:
+        print __doc__
+        sys.exit(1)
     sys.exit(main(args))

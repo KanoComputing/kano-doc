@@ -17,28 +17,6 @@ COLOURS = {
 }
 
 
-def confirm(text):
-    """Ask the user to confirm.
-
-    A confirmation is valid when 'y' or 'yes' was given as raw input.
-
-    Args:
-        text (str): Message passed to ``raw_input`` asking user for input
-
-    Returns:
-        bool: Whether the user confirmed or not
-    """
-    response = raw_input(text)
-    ok = False
-
-    try:
-        ok = response.lower() in ['y', 'yes']
-    except:
-        pass
-
-    return ok
-
-
 def colourise(text, fg_colour_id, bg_colour_id=None):
     """Style a string with ANSI colour IDs.
 
@@ -60,3 +38,25 @@ def colourise(text, fg_colour_id, bg_colour_id=None):
         bg_colour = ''
 
     return '{}{}{}{}'.format(bg_colour, fg_colour, text, ANSI_CODES['reset'])
+
+
+def confirm(text):
+    """Ask the user to confirm.
+
+    A confirmation is valid when 'y' or 'yes' was given as raw input.
+
+    Args:
+        text (str): Message passed to ``raw_input`` asking user for input
+
+    Returns:
+        bool: Whether the user confirmed or not
+    """
+    response = raw_input(text)
+    ok = False
+
+    try:
+        ok = response.lower() in ['y', 'yes']
+    except:
+        pass
+
+    return ok
