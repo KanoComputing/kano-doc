@@ -1,7 +1,7 @@
 kano-doc
-========
+--------
 
-Documentation tools for Kano OS
+Documentation tools for Kano OS.
 
 This repository contains scripts and templates to start adding
 documentation to other projects. Currently, this only extracts docs for
@@ -18,8 +18,8 @@ the following file structure:
     ├── my-project
     └── kano-doc
 
-The tools themselves require a ``sudo pip install Sphinx`` to generate
-docs.
+The tools themselves require a ``sudo pip install Sphinx sphinx_rtd_theme``
+to generate docs.
 
 To add the docs templates to ``my-project``:
 
@@ -48,26 +48,24 @@ doesn't have one, create one from scratch):
         build_docs "$repo_name"
     }
 
-Now you can run ``make all`` from ``~/Projects/my-project`` and perhaps
+Now you can run ``make docs`` from ``~/Projects/my-project`` and perhaps
 the following issues might arrise:
 
 -  If the repo contains multiple packages at different locations, add to
    ``~/Projects/my-project/docs/Makefile`` more ``sphinx-apidoc`` with
-   paths in where the Py packages will be. Also, add more
-   ``sys.path.insert`` at the top of the
-   ``~/Projects/my-project/docs/conf.py``
+   paths in where the Py packages will be. Also, add more ``sys.path.insert``
+   at the top of the ``~/Projects/my-project/docs/conf.py``
 -  Solve any ``ImportErrors`` by adding modules to the
    ``autodoc_mock_imports`` option under ``Options for autodoc`` in
    ``~/Projects/my-project/docs/conf.py``
 -  Solve any ``NameErrors`` for ``"_"`` and ``"N_"`` by uncommenting the
-   ``kano-i18n`` options under ``Kano OS configuration`` in the same
-   file
+   ``kano-i18n`` options under ``Kano OS configuration`` in the same file
 -  If you get any other errors that might arrise due to importing a
    package, then ``fix the code for it to be importable!``
 -  Finally, make sure to add the package names to
-   ``~/Projects/my-project/docs/source/modules.rst``, e.g. if
-   ``my-project`` has the following Python packages ``my_pkg``,
-   ``other_pkg``, then add those names in the file.
+   ``~/Projects/my-project/docs/source/modules.rst``, e.g. if ``my-project``
+   has the following Python packages ``my_pkg``, ``other_pkg``, then add
+   those names in the file.
 -  You can find the main page at
    ``~/Projects/my-project/docs/source/html/index.html``
 
