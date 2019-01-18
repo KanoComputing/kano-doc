@@ -56,7 +56,7 @@ def confirm(text):
 
     try:
         ok = response.lower() in ['y', 'yes']
-    except:
+    except Exception:
         pass
 
     return ok

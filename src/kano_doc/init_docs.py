@@ -35,8 +35,8 @@ def main(args):
         colourise(repo_name, COLOURS['value'])
     )
 
-    if (not args['--no-confirm'] and
-       not confirm('Are you sure you want to continue? [Y/N]: ')):
+    if not args['--no-confirm'] \
+       and not confirm('Are you sure you want to continue? [Y/N]: '):
         print 'Exiting..'
         return 0
 
@@ -57,8 +57,8 @@ def main(args):
 
     # Ensure the name is appropriate for the repo.
     cmd = (
-        'find {repo_docs_path} -type f -exec sed -i "" -e'
-        ' "s/kano-peripherals/{repo_name}/g" {{}} \;'
+        r'find {repo_docs_path} -type f -exec sed -i "" -e'
+        r' "s/kano-peripherals/{repo_name}/g" {{}} \;'
         .format(repo_docs_path=repo_docs_path, repo_name=repo_name)
     )
     print cmd

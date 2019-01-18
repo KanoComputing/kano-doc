@@ -24,7 +24,7 @@ KANO_DOC_CONFIG_DIR = join('kano-doc', 'res', 'docs-config')
 sys.path.insert(0, abspath(join(REPO_DIR, '..', KANO_DOC_CONFIG_DIR)))
 sys.path.insert(0, abspath(join(REPO_DIR, KANO_DOC_CONFIG_DIR)))
 
-from default_conf import *
+from default_conf import *  # noqa
 
 
 # -- Project configuration ----------------------------------------------------
